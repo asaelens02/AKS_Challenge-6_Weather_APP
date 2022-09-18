@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+    <script src ="http://kit.fontawesome.com/0236f42c31.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/style.css">
+
+
+
+    
+    
+    
+    <title>Weather App</title>
+
+</head>
+
+<body class="flex-column min-100-vh">
+<header class= "badge text-bg-primary p-3">
+    <h1 class="app-title"><i class="fa-solid fa-cloud-sun"></i> What's the Weather?</h1>
+    <p>Weather forecast
+    </p>
+  </header>
+
+
+  <main class="flex-row justify-space-between">
+    <div class ="col-12 col-md-4">
+        <div class="card">
+          <h3 class="card-header text-uppercase">Search By City</h3>
+          <form id="user-form" class="card-body">
+            <!-- <label class="form-label" for="city">City</label> -->
+            <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" />
+            <button type="search" class="btn"> Get City!</button>
+          </form>
+        </div>
+    </div>
+
+
+
+    <!-- <div class ="card">
+        <div class ="search">
+            <input type ="text" class="search-box">
+            <button>Search</button>
+        </div>
+    </div> -->
+    
+    <div class ="weather">
+        <h2 class ="city">City</h2>
+        <div class ="temp">60&#176; </div>
+        <div class = "dsectiption">Rain</div>
+        <div class = "humidity">Humidity: 40%</div>
+        <div class = "wind">Wind speed: 20 mph</div>
+    </div>
+</body>
+
+
+</html>
