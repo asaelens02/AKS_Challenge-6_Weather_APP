@@ -1,11 +1,29 @@
 //var APIKey= "c6dd3716265310c9a99e0960bc747987";
-var city = "midland";
+//var city = "Lubbock";
+var userFormEl = document.querySelector("#city-form");
+var cityInputEl = document.querySelector("#cityname");
 
+var formSubmitHandler = function(event) {
+    event.preventDefault();
+ // get value from input element
+var cityname = cityInputEl.value.trim();
 
-getWeatherInfo = function() {
-    console.log("function was called");
+if (cityname) {
+  getWeatherInfo(cityname);
+  cityInputEl.value = "";
+} else {
+  alert("Please enter a city");
+}   
+    console.log(event);
+  };
+
   
-        fetch("https://api.openweathermap.org/data/2.5/weather?q="+ city + "&appid=c6dd3716265310c9a99e0960bc747987")
+
+var getWeatherInfo = function(cityInputEl) {
+    console.log("function was called");
+    var apiURL = "https://api.openweathermap.org/data/2.5/weather?q="+ cityInputEl + "&appid=c6dd3716265310c9a99e0960bc747987";
+
+        fetch(apiURL)
       
         .then(function(response) {
             // request was successful
@@ -21,6 +39,7 @@ getWeatherInfo = function() {
           })
     };
     
+    userFormEl.addEventListener("submit", formSubmitHandler);
 
   
-  getWeatherInfo();
+  
