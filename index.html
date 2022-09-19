@@ -7,7 +7,7 @@
   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/assets/style1.css">
+    <link rel="stylesheet" href="./assets/style1.css">
     
     <script src ="http://kit.fontawesome.com/0236f42c31.js" crossorigin="anonymous"></script>
     
@@ -32,30 +32,29 @@
     <div class ="col-12 col-md-4">
         <div class="card">
           <h3 class="card-header text-uppercase">Search By City</h3>
-          <form id="user-form" class="card-body">
-            <!-- <label class="form-label" for="city">City</label> -->
+          <form id="city-form" class="card-body">
+            <label class="form-label" for="city">City</label>
             <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" />
             <button type="search" class="btn"> Get City!</button>
           </form>
         </div>
     </div>
+    <div class="col-12 col-md-8">
+        <h2 class="subtitle">Showing forecast for: <span id="city-search-term"></span></h2>
+        <div id="city-container" class="list-group">
+  
 
 
 
-    <!-- <div class ="card">
-        <div class ="search">
-            <input type ="text" class="search-box">
-            <button>Search</button>
-        </div>
-    </div> -->
+  
     
-    <div class ="weather">
+    <!-- <div class ="weather">
         <h2 class ="city">City</h2>
         <div class ="temp">60&#176; </div>
         <div class = "description">Rain</div>
         <div class = "humidity">Humidity: 40%</div>
         <div class = "wind">Wind speed: 20 mph</div>
-    </div>
+    </div> -->
 
     <div class="col-12 col-md-4">
         <h2 class="subtitle">Past Searches: <span id="city-search-term"></span></h2>
@@ -63,6 +62,10 @@
 
     <!-- <ul class="city list">past searches</ul> -->
 
+
+        </main>
+
+        <script src="./assets/script1.js"></script>   
 </body>
 
 
