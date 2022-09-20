@@ -1,3 +1,4 @@
+![Screenshot 2022-09-19 214102](https://user-images.githubusercontent.com/104400626/191156553-1f11c033-a025-474d-a656-e399456c7369.png)
 # AKS_Challenge-6_Weather_APP
 
 
