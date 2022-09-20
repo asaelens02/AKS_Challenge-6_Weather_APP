@@ -4,6 +4,7 @@ var repoContainerEl = document.querySelector("#repos-container");
 var repoSearchTerm = document.querySelector("#repo-search-term");
 var userFormEl = document.querySelector("#city-form");
 var cityInputEl = document.querySelector("#cityname");
+var feelsLike= document.querySelector("#feels-like");
 
 var formSubmitHandler = function(event) {
     event.preventDefault();
@@ -11,12 +12,14 @@ var formSubmitHandler = function(event) {
 var cityname = cityInputEl.value.trim();
 
 if (cityname) {
-  getWeatherInfo(cityname);
+ getWeatherInfo(cityname);
   cityInputEl.value = "";
+    // console.log(object);
+
 } else {
   alert("Please enter a city");
 }   
-    console.log(event);
+    console.log("here" + event);
   };
 
   
@@ -32,6 +35,7 @@ var getWeatherInfo = function(cityInputEl) {
             if (response.ok) {
 
                 response.json().then(function(data) {
+                    console.log("data of" + cityInputEl+ data);
                     displayData(data, cityInputEl);
 
              
@@ -43,53 +47,73 @@ var getWeatherInfo = function(cityInputEl) {
     };
 
     var displayData = function(main, searchTerm) {
-        console.log(main);
+       console.log(main["main"]["feels_like"]);
+        // console.log (main.humidity)
+        // feels_like
+        // : 
+        // 302.99
+        // humidity
+        // : 
+        // 39
+        // pressure
+        // : 
+        // 1014
+        // temp
+        // : 
+        // 303.38
+        // temp_max
+        // : 
+        // 304.29
+        // temp_min
+        // : 
+        // 302.39
         console.log(searchTerm);
         // clear old content
         repoContainerEl.textContent = "";
         repoSearchTerm.textContent = searchTerm;
+        feelsLike.textContent = main["main"]["feels_like"];
       };
 
 
-    // loop over repos
-for (var i = 0; i < repos.length; i++) {
-    // format repo name
-    var repoName = repos[i].owner.login + "/" + repos[i].name;
+//     // loop over repos
+// for (var i = 0; i < repos.length; i++) {
+//     // format repo name
+//     var repoName = repos[i].owner.login + "/" + repos[i].name;
   
-    // create a container for each repo
-    var repoEl = document.createElement("div");
-    repoEl.classList = "list-item flex-row justify-space-between align-center";
+//     // create a container for each repo
+//     var repoEl = document.createElement("div");
+//     repoEl.classList = "list-item flex-row justify-space-between align-center";
   
-    // create a span element to hold repository name
-    var titleEl = document.createElement("span");
-    titleEl.textContent = repoName;
+//     // create a span element to hold repository name
+//     var titleEl = document.createElement("span");
+//     titleEl.textContent = repoName;
   
-    // append to container
-    repoEl.appendChild(titleEl);
+//     // append to container
+//     repoEl.appendChild(titleEl);
   
-    // append container to the dom
-    repoContainerEl.appendChild(repoEl); 
+//     // append container to the dom
+//     repoContainerEl.appendChild(repoEl); 
     
     
 
-    // create a status element
-var statusEl = document.createElement("span");
-statusEl.classList = "flex-row align-center";
+//     // create a status element
+// var statusEl = document.createElement("span");
+// statusEl.classList = "flex-row align-center";
 
-// check if current repo has issues or not
-if (repos[i].open_issues_count > 0) {
-  statusEl.innerHTML =
-    "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + " issue(s)";
-} else {
-  statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-}
+// // check if current repo has issues or not
+// if (repos[i].open_issues_count > 0) {
+//   statusEl.innerHTML =
+//     "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + " issue(s)";
+// } else {
+//   statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
+// }
 
-// append to container
-repoEl.appendChild(statusEl);
+// // append to container
+// repoEl.appendChild(statusEl);
 
-};
+// };
     
-    userFormEl.addEventListener("submit", formSubmitHandler);
+userFormEl.addEventListener("submit", formSubmitHandler);
 
   
   
