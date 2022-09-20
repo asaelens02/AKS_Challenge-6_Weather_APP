@@ -1,7 +1,7 @@
 //var APIKey= "c6dd3716265310c9a99e0960bc747987";
 //var city = "Lubbock";
 var repoContainerEl = document.querySelector("#repos-container");
-var repoSearchTerm = document.querySelector("#repo-search-term");
+var weatherSearchTerm = document.querySelector("#weather-search-term");
 var userFormEl = document.querySelector("#city-form");
 var cityInputEl = document.querySelector("#cityname");
 var Temp= document.querySelector("#temperature");
@@ -56,53 +56,38 @@ var getWeatherInfo = function(cityInputEl) {
         console.log(searchTerm);
         // clear old content
         repoContainerEl.textContent = "";
-        repoSearchTerm.textContent = searchTerm;
+        weatherSearchTerm.textContent = searchTerm;
         Temp.textContent = data["main"]["temp"];
         humidity.textContent = data["main"]["humidity"];
         windSpeed.textContent= data["wind"]["speed"];
         weatherIcon. src = "http://openweathermap.org/img/w/"+data.weather[0].icon+".png";
-    }
-
-      ;
-
-
-//     // loop over repos
-// for (var i = 0; i < repos.length; i++) {
-//     // format repo name
-//     var repoName = repos[i].owner.login + "/" + repos[i].name;
-  
-//     // create a container for each repo
-//     var repoEl = document.createElement("div");
-//     repoEl.classList = "list-item flex-row justify-space-between align-center";
-  
-//     // create a span element to hold repository name
-//     var titleEl = document.createElement("span");
-//     titleEl.textContent = repoName;
-  
-//     // append to container
-//     repoEl.appendChild(titleEl);
-  
-//     // append container to the dom
-//     repoContainerEl.appendChild(repoEl); 
+    };
     
+    //need to figure this out...geocode api for location? need new UrL for forecast. 
     
+    // var getForcastInfo = function(cityInputEl) {
+    //     console.log("forecast was called");
+    //     var apiURL = "https://api.openweathermap.org/data/2.5/weather?q="+ cityInputEl +"&units=imperial&appid=c6dd3716265310c9a99e0960bc747987";
+    
+    //         fetch(apiURL)
+          
+    //         .then(function(response) {
+    //             // request was successful
+    //             if (response.ok) {
+    
+    //                 response.json().then(function(data) {
+    //                     console.log("data of" + cityInputEl+ data);
+    //                     displayData(data, cityInputEl);
+    
+                 
+    //               });
+    //             } else {
+    //               alert('Error: Location Not Found');
+    //             }
+    //           })
+    //     };
 
-//     // create a status element
-// var statusEl = document.createElement("span");
-// statusEl.classList = "flex-row align-center";
 
-// // check if current repo has issues or not
-// if (repos[i].open_issues_count > 0) {
-//   statusEl.innerHTML =
-//     "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + " issue(s)";
-// } else {
-//   statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-// }
-
-// // append to container
-// repoEl.appendChild(statusEl);
-
-// };
     
 userFormEl.addEventListener("submit", formSubmitHandler);
 
