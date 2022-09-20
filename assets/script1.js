@@ -5,6 +5,10 @@ var repoSearchTerm = document.querySelector("#repo-search-term");
 var userFormEl = document.querySelector("#city-form");
 var cityInputEl = document.querySelector("#cityname");
 var Temp= document.querySelector("#temperature");
+var windSpeed = document.querySelector ("#wind");
+var humidity = document.querySelector ("#humidity-percent");
+var weatherIcon= document.querySelector("#icon");
+
 
 var formSubmitHandler = function(event) {
     event.preventDefault();
@@ -46,33 +50,20 @@ var getWeatherInfo = function(cityInputEl) {
           })
     };
 
-    var displayData = function(main, searchTerm) {
-       //console.log(data)//["main"]["feels_like"]);
-        // console.log (main.humidity)
-        // feels_like
-        // : 
-        // 302.99
-        // humidity
-        // : 
-        // 39
-        // pressure
-        // : 
-        // 1014
-        // temp
-        // : 
-        // 303.38
-        // temp_max
-        // : 
-        // 304.29
-        // temp_min
-        // : 
-        // 302.39
+    var displayData = function(data, searchTerm) {
+       console.log(data)//["main"]["feels_like"]);
+   
         console.log(searchTerm);
         // clear old content
         repoContainerEl.textContent = "";
         repoSearchTerm.textContent = searchTerm;
-        Temp.textContent = main["main"]["temp"];
-      };
+        Temp.textContent = data["main"]["temp"];
+        humidity.textContent = data["main"]["humidity"];
+        windSpeed.textContent= data["wind"]["speed"];
+        weatherIcon. src = "http://openweathermap.org/img/w/"+data.weather[0].icon+".png";
+    }
+
+      ;
 
 
 //     // loop over repos
