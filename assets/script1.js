@@ -4,7 +4,7 @@ var repoContainerEl = document.querySelector("#repos-container");
 var repoSearchTerm = document.querySelector("#repo-search-term");
 var userFormEl = document.querySelector("#city-form");
 var cityInputEl = document.querySelector("#cityname");
-var feelsLike= document.querySelector("#feels-like");
+var Temp= document.querySelector("#temperature");
 
 var formSubmitHandler = function(event) {
     event.preventDefault();
@@ -26,7 +26,7 @@ if (cityname) {
 
 var getWeatherInfo = function(cityInputEl) {
     console.log("function was called");
-    var apiURL = "https://api.openweathermap.org/data/2.5/weather?q="+ cityInputEl + "&appid=c6dd3716265310c9a99e0960bc747987";
+    var apiURL = "https://api.openweathermap.org/data/2.5/weather?q="+ cityInputEl +"&units=imperial&appid=c6dd3716265310c9a99e0960bc747987";
 
         fetch(apiURL)
       
@@ -47,7 +47,7 @@ var getWeatherInfo = function(cityInputEl) {
     };
 
     var displayData = function(main, searchTerm) {
-       console.log(main["main"]["feels_like"]);
+       //console.log(data)//["main"]["feels_like"]);
         // console.log (main.humidity)
         // feels_like
         // : 
@@ -71,7 +71,7 @@ var getWeatherInfo = function(cityInputEl) {
         // clear old content
         repoContainerEl.textContent = "";
         repoSearchTerm.textContent = searchTerm;
-        feelsLike.textContent = main["main"]["feels_like"];
+        Temp.textContent = main["main"]["temp"];
       };
 
 
